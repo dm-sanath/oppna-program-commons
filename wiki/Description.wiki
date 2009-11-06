@@ -2,12 +2,13 @@
 
 = Introduction =
 
-Add your content here.
+This project contains a collection of components/composites that are too small or simple to be contained within their own project/system. They are used by other projects in the oppna-program suite.
 
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+These are the components contained within this project.
+
+*commons-util-core-bc-composite-svc-ldap (LDAP client)
+*commons-util-core-bc-composite-svc-pivotaltracker (Pivotal Tracker Client)
+*commons-util-core-bc-composite-svc-usd (USD client)
