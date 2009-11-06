@@ -10,5 +10,7 @@ This project contains a collection of components/composites that are too small o
 These are the components contained within this project.
 
 *commons-util-core-bc-composite-svc-ldap (LDAP client)
+
 *commons-util-core-bc-composite-svc-pivotaltracker (Pivotal Tracker Client)
+
 *commons-util-core-bc-composite-svc-usd (USD client)
