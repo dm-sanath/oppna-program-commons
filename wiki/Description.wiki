@@ -17,10 +17,10 @@ commons-util-core-bc-composite-svc-usd (USD client)
 
 
 Maven repository 
-{{{<repository>
+`<repository>
     <id>oppna-program-repo</id>
     <url>http://oppna-program.googlecode.com/svn/maven/</url>
-</repository>}}}
+</repository>`
 
 ==commons-util-core-bc-composite-svc-ldap==
 
