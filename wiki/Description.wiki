@@ -16,7 +16,11 @@ commons-util-core-bc-composite-svc-pivotaltracker (Pivotal Tracker Client)
 commons-util-core-bc-composite-svc-usd (USD client) 
 
 
-
+Maven repository 
+<repository>
+    <id>oppna-program-repo</id>
+    <url>http://oppna-program.googlecode.com/svn/maven/</url>
+</repository>
 
 ==commons-util-core-bc-composite-svc-ldap==
 
@@ -44,16 +48,22 @@ BIND_PW=somepwd
 
 ===Usage===
 
-Spring context setup example:
+pom dependecies:
+<dependency>
+    <groupId>se.vgr.commons-util</groupId>
+    <artifactId>commons-util-core-bc-composite-svc-ldap</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
 
-	<bean id="ldapService" class="se.vgr.ldapservice.LdapServiceImpl" >
+Spring context setup example:
+<bean id="ldapService" class="se.vgr.ldapservice.LdapServiceImpl" >
 		<constructor-arg ref="ldapProperties" />
-    </bean>
+</bean>
     
-    <bean id="ldapProperties"
+<bean id="ldapProperties"
         class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="location" value="classpath:ldap.properties" />
-   </bean>
+</bean>
    
 
    
@@ -82,17 +92,22 @@ PT_PWD=somepwd
 
 ===Usage===
 
-Spring context setup example:
+pom dependecies:
+<dependency>
+    <groupId>se.vgr.commons-util</groupId>
+    <artifactId>commons-util-core-bc-composite-svc-pivotaltracker</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
 
-	<bean id="pivotalTrackerProperties"
+Spring context setup example:
+<bean id="pivotalTrackerProperties"
         class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="location" value="classpath:pivotalTracker.properties" />
-    </bean>
+</bean>
     
-  
-    <bean id="pivotalTrackerService" class="se.vgr.incidentreport.pivotaltracker.impl.PivotalTrackerServiceImpl" >
+<bean id="pivotalTrackerService" class="se.vgr.incidentreport.pivotaltracker.impl.PivotalTrackerServiceImpl" >
         <constructor-arg ref="pivotalTrackerProperties" />
-    </bean>
+</bean>
 	
 	
 ==commons-util-core-bc-composite-svc-usd==
@@ -130,22 +145,29 @@ Antonio_portal=01 Gbg.SC.Service Desk IT
 
 ===Usage===
 
+pom dependecies:
+<dependency>
+    <groupId>se.vgr.commons-util</groupId>
+    <artifactId>commons-util-core-bc-composite-svc-usd</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
+
 Spring context setup example:
 
-	<bean id="usdService" class="se.vgr.usdservice.USDServiceImpl" >
+<bean id="usdService" class="se.vgr.usdservice.USDServiceImpl" >
 	<constructor-arg ref="usdProperties" />
     <property name="usdAppToGroupMappings"  ref="usdAppToGroupMappings" />
-	</bean>
+</bean>
 	
-	<bean id="usdProperties"
+<bean id="usdProperties"
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="location" value="classpath:usd.properties" />
-	</bean>
+</bean>
   
-  <bean id="usdAppToGroupMappings"
+<bean id="usdAppToGroupMappings"
         class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="location" value="classpath:usdAppToGroup.properties" />
-    </bean>
+</bean>
 	
 	
 	
