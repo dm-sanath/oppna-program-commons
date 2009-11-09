@@ -44,20 +44,22 @@ JUnit
 The file ldap.properties (should be placed in the classpath root)
 
 It should contain e.g.
+{{{
 BIND_DN=cn=root
 BIND_URL=ldap://someserver.acme.org:389
 BIND_PW=somepwd
-
+}}}
 ===Usage===
-
+{{{
 pom dependecies:
 <dependency>
     <groupId>se.vgr.commons-util</groupId>
     <artifactId>commons-util-core-bc-composite-svc-ldap</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
-
+}}}
 Spring context setup example:
+{{{
 <bean id="ldapService" class="se.vgr.ldapservice.LdapServiceImpl" >
 		<constructor-arg ref="ldapProperties" />
 </bean>
@@ -66,7 +68,7 @@ Spring context setup example:
         class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="location" value="classpath:ldap.properties" />
 </bean>
-   
+}}} 
 
    
 ==commons-util-core-bc-composite-svc-pivotaltracker==
@@ -89,28 +91,33 @@ JUnit,org.apache.http, org.w3c.dom
 The file pivotaltracker.properties (should be placed in the classpath root)
 
 It should contain e.g.
+{{{
 PT_USER=someuser
 PT_PWD=somepwd
+}}}
 
 ===Usage===
 
 pom dependecies:
+{{{
 <dependency>
     <groupId>se.vgr.commons-util</groupId>
     <artifactId>commons-util-core-bc-composite-svc-pivotaltracker</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
+}}}
 
 Spring context setup example:
+{{{
 <bean id="pivotalTrackerProperties"
         class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="location" value="classpath:pivotalTracker.properties" />
 </bean>
-    
+
 <bean id="pivotalTrackerService" class="se.vgr.incidentreport.pivotaltracker.impl.PivotalTrackerServiceImpl" >
         <constructor-arg ref="pivotalTrackerProperties" />
 </bean>
-	
+}}}
 	
 ==commons-util-core-bc-composite-svc-usd==
 
@@ -132,30 +139,33 @@ JUnit,org.apache.axis,
 The file usd.properties (should be placed in the classpath root)
 
 It should contain e.g.
+{{{
 endpoint=http://someserver.org:8080/axis/services/USD_R11_WebService?WSDL
 user=someuser
 password=somepwd
 repositoryHandle=doc_rep:400001
-
+}}}
 The file usdAppToGroup.properties (should be placed in the classpath root)
 
 It should contain e.g.
+{{{
 Tyck_till_test_portlet=01 Gbg.SC.Service Desk IT
 Antonio_portal=01 Gbg.SC.Service Desk IT
 ... 
 (appname)=(groupname in USD)
-
+}}}
 ===Usage===
 
 pom dependecies:
+{{{
 <dependency>
     <groupId>se.vgr.commons-util</groupId>
     <artifactId>commons-util-core-bc-composite-svc-usd</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
-
+}}}
 Spring context setup example:
-
+{{{
 <bean id="usdService" class="se.vgr.usdservice.USDServiceImpl" >
 	<constructor-arg ref="usdProperties" />
     <property name="usdAppToGroupMappings"  ref="usdAppToGroupMappings" />
@@ -170,6 +180,6 @@ Spring context setup example:
         class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="location" value="classpath:usdAppToGroup.properties" />
 </bean>
-	
+}}}
 	
 	
