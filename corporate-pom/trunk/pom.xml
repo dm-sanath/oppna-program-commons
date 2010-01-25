@@ -37,6 +37,7 @@
     <asm.version>2.2.3</asm.version>
     <mockito.version>1.8.0</mockito.version>
     <compileSource>1.6</compileSource>
+    <jpa.version>1.0</jpa.version>
   </properties>
 
   <build>
