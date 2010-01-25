@@ -4,14 +4,13 @@
     versions of third-party dependencies used throughout the system. Template version: 1.2-SNAPSHOT Generation time
     : 2009-12-18 13:18:09 CET
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>se.vgregion.common</groupId>
   <artifactId>profile</artifactId>
   <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>${project.artifactId}</name>
 
   <!-- common library versions -->
@@ -106,11 +105,6 @@
         </configuration>
       </plugin>
     </plugins>
-
-    <scm>
-      <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</developerConnection>
-      <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</url>
-    </scm>
 	
     <!-- needed for SVN-deployment -->
     <extensions>
@@ -183,8 +177,8 @@
   </build>
   
   <scm>
-	<developerConnection>scm:svn:https://vgr-utv-win01.vgregion.se/vgr/pli/trunk/pli-lf</developerConnection>
-	<url>svn://vgr-utv-win01.vgregion.se/</url>
+    <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/tags/profile-1.0</developerConnection>
+    <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/tags/profile-1.0</url>
   </scm>
 
   <reporting>
@@ -570,12 +564,12 @@
       <distributionManagement>
         <repository>
           <id>svn-repo</id>
-		  <name>Öppna Program Release Repo</name>
+		  <name>ï¿½ppna Program Release Repo</name>
           <url>svn:https://oppna-program.googlecode.com/svn/maven</url>
         </repository>
         <snapshotRepository>
           <id>svn-repo</id>
-		  <name>Öppna Program Snapshot Repo</name>
+		  <name>ï¿½ppna Program Snapshot Repo</name>
           <url>svn:https://oppna-program.googlecode.com/svn/maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
