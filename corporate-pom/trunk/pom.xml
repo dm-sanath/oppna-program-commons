@@ -108,9 +108,10 @@
     </plugins>
 
     <scm>
-      <developerConnection>scm:svn:https://__REPLACE_SYSTEM_NAME__.googlecode.com>/svn/trunk</developerConnection>
-      <url>http://__REPLACE_SYSTEM_NAME__.googlecode.com/svn/trunk</url>
+      <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</developerConnection>
+      <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</url>
     </scm>
+	
     <!-- needed for SVN-deployment -->
     <extensions>
       <extension>
