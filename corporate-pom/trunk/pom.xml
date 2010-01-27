@@ -343,6 +343,18 @@
         <scope>test</scope>
       </dependency>
       <dependency>
+        <groupId>hsqldb</groupId>
+        <artifactId>hsqldb</artifactId>
+        <version>1.8.0.1</version>
+		<scope>test</scope>
+	  </dependency>	  
+      <dependency>
+        <groupId>se.vgregion.test-utils</groupId>
+        <artifactId>test-utils-bc-core-composite-svc</artifactId>
+        <version>1.1-SNAPSHOT</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
         <groupId>org.powermock.modules</groupId>
         <artifactId>powermock-module-junit4</artifactId>
         <version>${powermock.version}</version>
