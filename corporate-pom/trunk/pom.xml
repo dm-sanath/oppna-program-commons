@@ -84,7 +84,9 @@
               <goal>integration-test</goal>
               <goal>verify</goal>
             </goals>
-	    <testFailureIgnore>true</testFailureIgnore>
+	    <configuration>
+	      <testFailureIgnore>true</testFailureIgnore>
+	    </configuration>
           </execution>
         </executions>
       </plugin>
