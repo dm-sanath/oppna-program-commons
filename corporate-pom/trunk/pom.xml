@@ -10,7 +10,7 @@
   <groupId>se.vgregion.common</groupId>
   <artifactId>profile</artifactId>
   <packaging>pom</packaging>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.2</version>
   <name>${project.artifactId}</name>
 
   <!-- common library versions -->
@@ -178,8 +178,8 @@
   </build>
   
   <scm>
-    <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</developerConnection>
-    <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</url>
+    <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/tags/profile-1.2</developerConnection>
+    <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/tags/profile-1.2</url>
   </scm>
 
   <reporting>
