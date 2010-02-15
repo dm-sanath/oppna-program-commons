@@ -515,7 +515,7 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>com.google.code.maven-license-plugin</groupId>
+            <groupId>com.mycila.maven-license-plugin</groupId>
             <artifactId>maven-license-plugin</artifactId>
             <version>1.5.1</version>
             <configuration>
@@ -533,7 +533,7 @@
                 <id>format</id>
                 <phase>process-sources</phase>
                 <goals>
-                  <goal>update</goal>
+                  <goal>format</goal>
                 </goals>
               </execution>
               <execution>
