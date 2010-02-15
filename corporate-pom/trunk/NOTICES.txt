@@ -1,4 +1,4 @@
-Copyright © 2009 VŠstra Gštalandsregionen
+Copyright Â© 2009 VÅ stra GÅ¡talandsregionen
 
 This product includes/uses software, Jakarta Standard Taglibs
 (http://jakarta.apache.org/taglibs/index.html),

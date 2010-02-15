@@ -517,8 +517,9 @@
           <plugin>
             <groupId>com.google.code.maven-license-plugin</groupId>
             <artifactId>maven-license-plugin</artifactId>
+            <version>1.5.1</version>
             <configuration>
-              <header>header.txt</header>
+              <header>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk/header.txt</header>
               <excludes>
                 <exclude>target/**</exclude>
                 <exclude>**/NOTICES.txt</exclude>
@@ -532,7 +533,7 @@
                 <id>format</id>
                 <phase>process-sources</phase>
                 <goals>
-                  <goal>format</goal>
+                  <goal>update</goal>
                 </goals>
               </execution>
               <execution>
@@ -580,12 +581,12 @@
       <distributionManagement>
         <repository>
           <id>svn-repo</id>
-		  <name>�ppna Program Release Repo</name>
+		  <name>Öppna Program Release Repo</name>
           <url>svn:https://oppna-program.googlecode.com/svn/maven</url>
         </repository>
         <snapshotRepository>
           <id>svn-repo</id>
-		  <name>�ppna Program Snapshot Repo</name>
+		  <name>Öppna Program Snapshot Repo</name>
           <url>svn:https://oppna-program.googlecode.com/svn/maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
