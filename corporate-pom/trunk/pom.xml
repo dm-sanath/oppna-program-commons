@@ -1,10 +1,21 @@
 <?xml version="1.0"?>
   <!--
+    Copyright 2010 Västra Götalandsregionen This library is free software; you can redistribute it and/or modify it
+    under the terms of version 2.1 of the GNU Lesser General Public License as published by the Free Software
+    Foundation. This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+    even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+    Public License for more details. You should have received a copy of the GNU Lesser General Public License along
+    with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+    02111-1307 USA
+  -->
+
+  <!--
     This is the System-level Maven POM. Usage: Define all truly common things for the system here. For example:
     versions of third-party dependencies used throughout the system. Template version: 1.2-SNAPSHOT Generation time
     : 2009-12-18 13:18:09 CET
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>se.vgregion.common</groupId>
@@ -18,7 +29,6 @@
     <javg.version>1.2-SNAPSHOT</javg.version>
     <spring.fw.version>3.0.0.RELEASE</spring.fw.version>
     <apache.cxf.version>2.1.1</apache.cxf.version>
-    <portlet-api.version>2.0</portlet-api.version>
     <jstl.version>1.2</jstl.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -41,6 +51,132 @@
   </properties>
 
   <build>
+    <pluginManagement>
+      <plugins>
+        <!-- The Compiler Plugin is used to compile the sources of your project. -->
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.0.2</version>
+        </plugin>
+        <!-- The Source Plugin creates a jar archive of the source files of the current project. -->
+        <plugin>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>2.1.1</version>
+        </plugin>
+        <!--
+          The Eclipse Plugin is used to generate Eclipse IDE files (*.classpath, *.wtpmodules and the .settings
+          folder) for use with a project.
+        -->
+        <plugin>
+          <artifactId>maven-eclipse-plugin</artifactId>
+          <version>2.7</version>
+        </plugin>
+        <!--
+          The SCM Plugin offers vendor independent access to common scm commands by offering a set of command
+          mappings for the configured scm.
+        -->
+        <plugin>
+          <artifactId>maven-scm-plugin</artifactId>
+          <version>1.2</version>
+        </plugin>
+        <!-- The Checkstyle Plugin generates a report regarding the code style used by the developers. -->
+        <plugin>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>2.4</version>
+        </plugin>
+        <!--
+          The JXR plugin produces a cross-reference of the project's sources. The generated reports make it easier
+          for the user to reference or find specific lines of code.
+        -->
+        <plugin>
+          <artifactId>maven-jxr-plugin</artifactId>
+          <version>2.1</version>
+        </plugin>
+        <!-- The Javadoc Plugin uses the Javadoc tool to generate javadocs for the specified project. -->
+        <plugin>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.6.1</version>
+        </plugin>
+        <!--
+          PMD scans Java source code and looks for potential problems like Possible bugs, Dead code, Suboptimal
+          code, Overcomplicated expressions and Duplicate code
+        -->
+        <plugin>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>2.4</version>
+        </plugin>
+        <!--
+          FindBugs looks for bugs in Java programs. It is based on the concept of bug patterns. IE: difficult
+          language features, misunderstood API methods, misunderstood invariants when code is modified during
+          maintenance or garden variety mistakes: typos, use of the wrong boolean operator.
+        -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>2.0.1</version>
+        </plugin>
+        <!-- The Failsafe Plugin is a fork of the Surefire plugin designed to run integration tests. -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>failsafe-maven-plugin</artifactId>
+          <version>2.4.3-alpha-1</version>
+        </plugin>
+        <!--
+          The Cobertura plugin provides the features of Cobertura within the Maven 2 environment. Cobertura is a
+          free Java tool that calculates the percentage of code accessed by tests.
+        -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>cobertura-maven-plugin</artifactId>
+          <version>2.3</version>
+        </plugin>
+        <!--
+          The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an
+          application.
+        -->
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <excludes>
+              <exclude>**/integrationtest/**</exclude>
+            </excludes>
+          </configuration>
+        </plugin>
+        <!-- maven-license-plugin helps you managing license headers in source files. -->
+        <plugin>
+          <groupId>com.mycila.maven-license-plugin</groupId>
+          <artifactId>maven-license-plugin</artifactId>
+          <version>1.5.1</version>
+          <configuration>
+            <header>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk/header.txt</header>
+            <excludes>
+              <exclude>target/**</exclude>
+              <exclude>**/NOTICES.txt</exclude>
+              <exclude>thirdpartylicenses/**</exclude>
+              <exclude>**/LICENSE.rtf</exclude>
+              <exclude>**/context.xml</exclude>
+            </excludes>
+          </configuration>
+          <executions>
+            <execution>
+              <id>format</id>
+              <phase>process-sources</phase>
+              <goals>
+                <goal>format</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>check</id>
+              <phase>compile</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -84,9 +220,9 @@
               <goal>integration-test</goal>
               <goal>verify</goal>
             </goals>
-	    <configuration>
-	      <testFailureIgnore>true</testFailureIgnore>
-	    </configuration>
+            <configuration>
+              <testFailureIgnore>true</testFailureIgnore>
+            </configuration>
           </execution>
         </executions>
       </plugin>
@@ -109,7 +245,7 @@
         </configuration>
       </plugin>
     </plugins>
-	
+
     <!-- needed for SVN-deployment -->
     <extensions>
       <extension>
@@ -118,68 +254,9 @@
         <version>1.8</version>
       </extension>
     </extensions>
-
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>2.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>2.1.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-eclipse-plugin</artifactId>
-          <version>2.7</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-scm-plugin</artifactId>
-          <version>1.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>2.4</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-jxr-plugin</artifactId>
-          <version>2.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.6.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-pmd-plugin</artifactId>
-          <version>2.4</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>findbugs-maven-plugin</artifactId>
-          <version>2.0.1</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>failsafe-maven-plugin</artifactId>
-          <version>2.4.3-alpha-1</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>cobertura-maven-plugin</artifactId>
-          <version>2.3</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <configuration>
-            <excludes>
-              <exclude>**/integrationtest/**</exclude>
-            </excludes>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
-  
+
+
   <scm>
     <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</developerConnection>
     <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</url>
@@ -349,8 +426,8 @@
         <groupId>hsqldb</groupId>
         <artifactId>hsqldb</artifactId>
         <version>1.8.0.1</version>
-		<scope>test</scope>
-	  </dependency>	  
+        <scope>test</scope>
+      </dependency>
       <dependency>
         <groupId>se.vgregion.test-utils</groupId>
         <artifactId>test-utils-bc-core-composite-svc</artifactId>
@@ -458,32 +535,11 @@
     </dependency>
   </dependencies>
 
-  <pluginRepositories>
-    <pluginRepository>
-      <id>atlassian-public</id>
-      <url>https://maven.atlassian.com/repository/public</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </pluginRepository>
-    <!--Needed for the maven-license-plugin -->
-    <pluginRepository>
-      <id>mc-release</id>
-      <name>License plugin</name>
-      <url>http://mc-repo.googlecode.com/svn/maven2/releases</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </pluginRepository>
-  </pluginRepositories>
-
   <profiles>
+    <!--
+      This profile should be use by projects hosted internallay on VGR. The profile need to be specified explicity
+      to be used: -Pinternal
+    -->
     <profile>
       <id>internal</id>
       <repositories>
@@ -493,6 +549,15 @@
           <url>http://portalutv.vgregion.se/nexus/content/groups/all</url>
         </repository>
       </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <name>vgr internal repo</name>
+          <url>http://portalutv.vgregion.se/nexus/content/groups/all</url>
+        </pluginRepository>
+      </pluginRepositories>
+
       <distributionManagement>
         <repository>
           <uniqueVersion>false</uniqueVersion>
@@ -508,6 +573,10 @@
     </profile>
 
     <profile>
+      <!--
+        This profile should be use by open source projec on VGR. The projects are hosted by google code. This is
+        the default profile and is used if no other profile is specified.
+      -->
       <id>open</id>
       <activation>
         <activeByDefault>true</activeByDefault>
@@ -517,33 +586,6 @@
           <plugin>
             <groupId>com.mycila.maven-license-plugin</groupId>
             <artifactId>maven-license-plugin</artifactId>
-            <version>1.5.1</version>
-            <configuration>
-              <header>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk/header.txt</header>
-              <excludes>
-                <exclude>target/**</exclude>
-                <exclude>**/NOTICES.txt</exclude>
-                <exclude>thirdpartylicenses/**</exclude>
-                <exclude>**/LICENSE.rtf</exclude>
-                <exclude>**/context.xml</exclude>
-              </excludes>
-            </configuration>
-            <executions>
-              <execution>
-                <id>format</id>
-                <phase>process-sources</phase>
-                <goals>
-                  <goal>format</goal>
-                </goals>
-              </execution>
-              <execution>
-                <id>check</id>
-                <phase>compile</phase>
-                <goals>
-                  <goal>check</goal>
-                </goals>
-              </execution>
-            </executions>
           </plugin>
         </plugins>
       </build>
@@ -564,8 +606,8 @@
           <layout>legacy</layout>
         </repository>
         <repository>
-          <id>oppnaprogram</id>
-          <name>oppna program repo</name>
+          <id>oppnaprogram-release</id>
+          <name>oppna program release repo</name>
           <url>http://oppna-program.googlecode.com/svn/maven</url>
           <releases>
             <updatePolicy>never</updatePolicy>
@@ -574,25 +616,74 @@
           </releases>
         </repository>
         <repository>
+          <id>oppnaprogram-snapshot</id>
+          <name>oppna program snapshot repo</name>
+          <url>http://oppna-program.googlecode.com/svn/maven-snapshots</url>
+        </repository>
+        <repository>
           <id>powermock-repo</id>
           <url>http://powermock.googlecode.com/svn/repo/</url>
         </repository>
       </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>atlassian-public</id>
+          <url>https://maven.atlassian.com/repository/public</url>
+        </pluginRepository>
+        <pluginRepository>
+          <id>atlassian-m1-repository</id>
+          <url>https://maven.atlassian.com/maven1</url>
+          <layout>legacy</layout>
+        </pluginRepository>
+        <pluginRepository>
+          <id>oppnaprogram-release</id>
+          <name>oppna program release repo</name>
+          <url>http://oppna-program.googlecode.com/svn/maven</url>
+          <releases>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+            <enabled>true</enabled>
+          </releases>
+        </pluginRepository>
+        <pluginRepository>
+          <id>oppnaprogram-snapshot</id>
+          <name>oppna program snapshot repo</name>
+          <url>http://oppna-program.googlecode.com/svn/maven-snapshots</url>
+        </pluginRepository>
+        <!--Needed for the maven-license-plugin -->
+        <pluginRepository>
+          <id>mc-release</id>
+          <name>License plugin</name>
+          <url>http://mc-repo.googlecode.com/svn/maven2/releases</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </pluginRepository>
+      </pluginRepositories>
+
       <distributionManagement>
         <repository>
           <id>svn-repo</id>
-		  <name>Öppna Program Release Repo</name>
+          <name>Öppna Program Release Repo</name>
           <url>svn:https://oppna-program.googlecode.com/svn/maven</url>
         </repository>
         <snapshotRepository>
           <id>svn-repo</id>
-		  <name>Öppna Program Snapshot Repo</name>
+          <name>Öppna Program Snapshot Repo</name>
           <url>svn:https://oppna-program.googlecode.com/svn/maven-snapshots</url>
         </snapshotRepository>
-    </distributionManagement>
-  </profile>
+      </distributionManagement>
+    </profile>
 
     <profile>
+      <!--
+        The prod-profile is used when building production artifacts. When using this profile you also have to
+        specify the open- or internal profile.
+      -->
       <id>prod</id>
       <build>
         <plugins>
@@ -608,6 +699,7 @@
     </profile>
 
     <profile>
+      <!-- Use this profile to run integration tests. -->
       <id>itest</id>
       <activation>
         <property>
