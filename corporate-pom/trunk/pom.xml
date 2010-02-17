@@ -586,6 +586,19 @@
             <groupId>com.mycila.maven-license-plugin</groupId>
             <artifactId>maven-license-plugin</artifactId>
           </plugin>
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<configuration>
+          <webResources>
+            <resource>
+              <excludes>
+                <exclude>**/security.properties</exclude>
+              </excludes>
+            </resource>
+          </webResources>
+			</configuration>
+		  </plugin>
         </plugins>
       </build>
       <repositories>
