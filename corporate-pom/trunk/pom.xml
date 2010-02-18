@@ -592,6 +592,7 @@
 	    <configuration>
               <webResources>
 		<resource>
+		  <directory>src/main/resources/</directory>
 		  <excludes>
                     <exclude>**/security.properties</exclude>
 		  </excludes>
