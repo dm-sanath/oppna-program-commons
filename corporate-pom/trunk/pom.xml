@@ -590,14 +590,7 @@
 	    <groupId>org.apache.maven.plugins</groupId>
 	    <artifactId>maven-war-plugin</artifactId>
 	    <configuration>
-              <webResources>
-		<resource>
-		  <directory>src/main/resources/</directory>
-		  <excludes>
-                    <exclude>**/security.properties</exclude>
-		  </excludes>
-		</resource>
-              </webResources>
+              <packagingExcludes>**/security.properties</packagingExcludes>
 	    </configuration>
 	  </plugin>
         </plugins>
@@ -694,12 +687,12 @@
 
     <profile>
       <!--
-        The prod-profile is used when building production artifacts. When using this profile you also have to
-        specify the open- or internal profile.
+        The prod-profile is used when building production artifacts with securities (security.properties) included.
+	NB! Never deploy to maven repo with this profile.
       -->
       <id>prod</id>
       <build>
-        <plugins>
+	<plugins>
           <plugin>
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
@@ -709,6 +702,59 @@
           </plugin>
         </plugins>
       </build>
+      <repositories>
+        <repository>
+          <id>atlassian-public</id>
+          <url>https://maven.atlassian.com/repository/public</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </repository>
+        <repository>
+          <id>atlassian-m1-repository</id>
+          <url>https://maven.atlassian.com/maven1</url>
+          <layout>legacy</layout>
+        </repository>
+        <repository>
+          <id>oppnaprogram-release</id>
+          <name>oppna program release repo</name>
+          <url>http://oppna-program.googlecode.com/svn/maven</url>
+          <releases>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+            <enabled>true</enabled>
+          </releases>
+        </repository>
+        <repository>
+          <id>powermock-repo</id>
+          <url>http://powermock.googlecode.com/svn/repo/</url>
+        </repository>
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>atlassian-public</id>
+          <url>https://maven.atlassian.com/repository/public</url>
+        </pluginRepository>
+        <pluginRepository>
+          <id>atlassian-m1-repository</id>
+          <url>https://maven.atlassian.com/maven1</url>
+          <layout>legacy</layout>
+        </pluginRepository>
+        <pluginRepository>
+          <id>oppnaprogram-release</id>
+          <name>oppna program release repo</name>
+          <url>http://oppna-program.googlecode.com/svn/maven</url>
+          <releases>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+            <enabled>true</enabled>
+          </releases>
+        </pluginRepository>
+      </pluginRepositories>
     </profile>
 
     <profile>
