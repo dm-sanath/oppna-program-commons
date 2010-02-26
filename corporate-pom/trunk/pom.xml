@@ -14,7 +14,8 @@
     versions of third-party dependencies used throughout the system. Template version: 1.2-SNAPSHOT Generation time
     : 2009-12-18 13:18:09 CET
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>se.vgregion.common</groupId>
@@ -57,6 +58,15 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>2.0.2</version>
         </plugin>
+        <!--
+          The WAR Plugin is responsible for collecting all artifact dependencies, classes and resources of the web
+          application and packaging them into a web application archive.
+        -->
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.1-beta-1</version>
+        </plugin>
+
         <!-- The Source Plugin creates a jar archive of the source files of the current project. -->
         <plugin>
           <artifactId>maven-source-plugin</artifactId>
@@ -413,7 +423,7 @@
         <groupId>com.liferay</groupId>
         <artifactId>util-java</artifactId>
         <version>${liferay.version}</version>
-	<scope>runtime</scope>
+        <scope>runtime</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
@@ -592,13 +602,14 @@
             <groupId>com.mycila.maven-license-plugin</groupId>
             <artifactId>maven-license-plugin</artifactId>
           </plugin>
-	  <plugin>
-	    <groupId>org.apache.maven.plugins</groupId>
-	    <artifactId>maven-war-plugin</artifactId>
-	    <configuration>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.1-beta-1</version>
+            <configuration>
               <packagingExcludes>**/security.properties</packagingExcludes>
-	    </configuration>
-	  </plugin>
+            </configuration>
+          </plugin>
         </plugins>
       </build>
       <repositories>
@@ -694,11 +705,11 @@
     <profile>
       <!--
         The prod-profile is used when building production artifacts with securities (security.properties) included.
-	NB! Never deploy to maven repo with this profile.
+        NB! Never deploy to maven repo with this profile.
       -->
       <id>prod</id>
       <build>
-	<plugins>
+        <plugins>
           <plugin>
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
