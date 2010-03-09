@@ -26,7 +26,7 @@
 
   <!-- common library versions -->
   <properties>
-    <javg.version>1.2-SNAPSHOT</javg.version>
+    <javg.version>1.2</javg.version>
     <spring.fw.version>3.0.1.RELEASE</spring.fw.version>
     <apache.cxf.version>2.1.1</apache.cxf.version>
     <jstl.version>1.2</jstl.version>
