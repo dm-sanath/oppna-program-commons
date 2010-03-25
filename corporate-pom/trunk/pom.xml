@@ -333,7 +333,7 @@
       <extension>
         <groupId>org.jvnet.wagon-svn</groupId>
         <artifactId>wagon-svn</artifactId>
-        <version>1.9</version>
+        <version>1.8</version> <!-- 1.9 -->
       </extension>
     </extensions>
   </build>
