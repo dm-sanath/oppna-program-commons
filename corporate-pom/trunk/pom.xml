@@ -183,7 +183,7 @@
 		Added revisionOnScmFailure, seems to upset Hudson somewhat otherwise...
 		[INFO] [buildnumber:create {execution: default}]
 		[INFO] Checking for local modifications: skipped.
-		[INFO] Executing: cmd.exe /X /C "svn --non-interactive update D:\program\hudson_home\jobs\BFR\workspace\trunk"
+		[INFO] Executing: cmd.exe /X /C "svn __non-interactive update D:\program\hudson_home\jobs\BFR\workspace\trunk"
 		[INFO] Working directory: D:\program\hudson_home\jobs\BFR\workspace\trunk
 		Provider message:
 		The svn command failed.
