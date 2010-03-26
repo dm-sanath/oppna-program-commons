@@ -180,7 +180,7 @@
           in particular, at this time, from svn. You can then place that build number in metadata, which can be
           accessed from your app, if desired.
         
-		Added revisionOnScmFailure, seems to upset Hudson somewhat otherwise...
+		Removing buildNumber, seems to upset Hudson somewhat otherwise...
 		[INFO] [buildnumber:create {execution: default}]
 		[INFO] Checking for local modifications: skipped.
 		[INFO] Executing: cmd.exe /X /C "svn __non-interactive update D:\program\hudson_home\jobs\BFR\workspace\trunk"
@@ -189,7 +189,7 @@
 		The svn command failed.
 		Command output:
 		svn: Can't get password
-		-->
+		
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>buildnumber-maven-plugin</artifactId>
@@ -198,6 +198,7 @@
 			<revisionOnScmFailure>REVISION_UNKNOWN</revisionOnScmFailure>
 		  </configuration>
         </plugin>
+		-->
 
         <!-- maven-license-plugin helps you managing license headers in source files. -->
         <plugin>
@@ -241,7 +242,7 @@
           <archive>
             <manifestEntries>
               <Version>${project.version}</Version>
-              <SCM-Revision>${buildNumber}</SCM-Revision>
+              <!--<SCM-Revision>${buildNumber}</SCM-Revision>-->
             </manifestEntries>
           </archive>
         </configuration>
@@ -252,7 +253,7 @@
           <archive>
             <manifestEntries>
               <Version>${project.version}</Version>
-              <SCM-Revision>${buildNumber}</SCM-Revision>
+              <!--<SCM-Revision>${buildNumber}</SCM-Revision>-->
             </manifestEntries>
           </archive>
         </configuration>
@@ -324,6 +325,7 @@
         </configuration>
       </plugin>
 	  
+	  <!--
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
@@ -341,6 +343,7 @@
 		  <revisionOnScmFailure>REVISION_UNKNOWN</revisionOnScmFailure>
         </configuration>
       </plugin>
+	  -->
     </plugins>
 
     <!-- needed for SVN-deployment -->
