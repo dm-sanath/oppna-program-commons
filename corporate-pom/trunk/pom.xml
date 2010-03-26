@@ -179,11 +179,24 @@
           number that can uniquely identify each build during that time. The build number is obtained from scm, and
           in particular, at this time, from svn. You can then place that build number in metadata, which can be
           accessed from your app, if desired.
-        -->
+        
+		Added revisionOnScmFailure, seems to upset Hudson somewhat otherwise...
+		[INFO] [buildnumber:create {execution: default}]
+		[INFO] Checking for local modifications: skipped.
+		[INFO] Executing: cmd.exe /X /C "svn --non-interactive update D:\program\hudson_home\jobs\BFR\workspace\trunk"
+		[INFO] Working directory: D:\program\hudson_home\jobs\BFR\workspace\trunk
+		Provider message:
+		The svn command failed.
+		Command output:
+		svn: Can't get password
+		-->
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>buildnumber-maven-plugin</artifactId>
           <version>1.0-beta-4</version>
+		  <configuration>
+			<revisionOnScmFailure>REVISION_UNKNOWN</revisionOnScmFailure>
+		  </configuration>
         </plugin>
 
         <!-- maven-license-plugin helps you managing license headers in source files. -->
@@ -310,6 +323,7 @@
           <connectionType>developerConnection</connectionType>
         </configuration>
       </plugin>
+	  
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
@@ -324,6 +338,7 @@
         <configuration>
           <doCheck>false</doCheck>
           <doUpdate>true</doUpdate>
+		  <revisionOnScmFailure>REVISION_UNKNOWN</revisionOnScmFailure>
         </configuration>
       </plugin>
     </plugins>
