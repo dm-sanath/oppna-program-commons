@@ -21,7 +21,7 @@
   <groupId>se.vgregion.common</groupId>
   <artifactId>profile</artifactId>
   <packaging>pom</packaging>
-  <version>1.11</version>
+  <version>1.12-SNAPSHOT</version>
   <name>${project.artifactId}</name>
 
   <!-- common library versions -->
@@ -359,8 +359,8 @@
 
 
   <scm>
-    <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/tags/profile-1.11</developerConnection>
-    <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/tags/profile-1.11</url>
+    <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</developerConnection>
+    <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</url>
   </scm>
 
   <reporting>
