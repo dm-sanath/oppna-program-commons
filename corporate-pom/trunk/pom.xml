@@ -27,7 +27,7 @@
   <!-- common library versions -->
   <properties>
     <javg.version>1.2</javg.version>
-    <spring.fw.version>3.0.1.RELEASE</spring.fw.version>
+    <spring.fw.version>3.0.2.RELEASE</spring.fw.version>
     <apache.cxf.version>2.1.1</apache.cxf.version>
     <jstl.version>1.2</jstl.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -44,7 +44,7 @@
     <quartz.version>1.5.2</quartz.version>
     <aspectj.version>1.6.5</aspectj.version>
     <cglib.version>2.2</cglib.version>
-    <asm.version>2.2.3</asm.version>
+    <asm.version>3.1</asm.version>
     <mockito.version>1.8.2</mockito.version>
     <compileSource>1.6</compileSource>
     <jpa.version>1.0</jpa.version>
@@ -213,6 +213,7 @@
               <exclude>thirdpartylicenses/**</exclude>
               <exclude>**/LICENSE.rtf</exclude>
               <exclude>**/context.xml</exclude>
+			  <exclude>**/*.properties</exclude>
             </excludes>
           </configuration>
           <executions>
