@@ -31,13 +31,14 @@
   
   <build>
     <pluginManagement>
-        <!-- maven-license-plugin helps you managing license headers in source files. -->
+      <!-- maven-license-plugin helps you managing license headers in source files. -->
+      <plugins>
         <plugin>
           <groupId>com.mycila.maven-license-plugin</groupId>
           <artifactId>maven-license-plugin</artifactId>
           <version>1.5.1</version>
           <configuration>
-            <header>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk/open/header.txt</header>
+            <header>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk/header.txt</header>
             <excludes>
               <exclude>target/**</exclude>
               <exclude>**/NOTICES.txt</exclude>
@@ -156,17 +157,4 @@
     </pluginRepository>
   </pluginRepositories>
 
-  <distributionManagement>
-    <snapshotRepository>
-      <id>sonatype-nexus</id>
-      <name>Sonatype Nexus Snapshots</name>
-      <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>sonatype-nexus</id>
-      <name>Sonatype Nexus Releases</name>
-      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-    </repository>
-  </distributionManagement>
-  
 </project>
