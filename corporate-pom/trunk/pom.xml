@@ -23,7 +23,72 @@
   <packaging>pom</packaging>
   <version>2.0-SNAPSHOT</version>
   <name>${project.artifactId}</name>
-
+  <description>Corporate POM for projects in the oppna-program community.</description>
+  <url>http://oppna-program.googlecode.com</url>
+  <licenses>
+    <license>
+      <name>GNU Lesser General Public License</name>
+      <url>http://www.gnu.org/licenses/lgpl.txt</url>
+      <distribution>repo</distribution>
+      <comments>The LGPL places copyleft restrictions on the program itself but does not apply these restrictions to other software that merely links with the program.</comments>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>hangy2</id>
+      <name>Hans Gyllensten</name>
+      <organization>Västra Götalandsregionen</organization>
+      <organizationUrl>http://www.vgregion.se</organizationUrl>
+      <roles>
+        <role>lead architect</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+    <developer>
+      <id>aasplund</id>
+      <name>Anders Asplund</name>
+      <organization>Logica</organization>
+      <organizationUrl>http://www.logica.com</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+    <developer>
+      <id>asse.hemma</id>
+      <name>Anders Bergkvist</name>
+      <organization>Omegapoint</organization>
+      <organizationUrl>http://www.omegapoint.se</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+    <developer>
+      <id>wmdaros</id>
+      <name>David Rosell</name>
+      <organization>Redpill-Linpro</organization>
+      <organizationUrl>http://www.redpill-linpro.com</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+    <developer>
+      <id>jonas.liljenfeldt</id>
+      <name>Jonas Liljenfeldt</name>
+      <organization>Know IT</organization>
+      <organizationUrl>http://www.knowit.se</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
   <modules>
   	<module>internal</module>
   	<module>open</module>

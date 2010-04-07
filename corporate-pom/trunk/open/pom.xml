@@ -38,7 +38,7 @@
           <artifactId>maven-license-plugin</artifactId>
           <version>1.5.1</version>
           <configuration>
-            <header>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk/open/header.txt</header>
+            <header>http://oppna-program.googlecode.com/files/header.txt</header>
             <excludes>
               <exclude>target/**</exclude>
               <exclude>**/NOTICES.txt</exclude>
