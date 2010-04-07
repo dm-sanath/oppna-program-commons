@@ -21,9 +21,14 @@
   <groupId>se.vgregion.common</groupId>
   <artifactId>profile</artifactId>
   <packaging>pom</packaging>
-  <version>1.12-SNAPSHOT</version>
+  <version>2.0-SNAPSHOT</version>
   <name>${project.artifactId}</name>
 
+  <modules>
+  	<module>internal</module>
+  	<module>open</module>
+  </modules>
+  
   <!-- common library versions -->
   <properties>
     <javg.version>1.2</javg.version>
@@ -199,40 +204,6 @@
 		  </configuration>
         </plugin>
 		-->
-
-        <!-- maven-license-plugin helps you managing license headers in source files. -->
-        <plugin>
-          <groupId>com.mycila.maven-license-plugin</groupId>
-          <artifactId>maven-license-plugin</artifactId>
-          <version>1.5.1</version>
-          <configuration>
-            <header>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk/header.txt</header>
-            <excludes>
-              <exclude>target/**</exclude>
-              <exclude>**/NOTICES.txt</exclude>
-              <exclude>thirdpartylicenses/**</exclude>
-              <exclude>**/LICENSE.rtf</exclude>
-              <exclude>**/context.xml</exclude>
-			  <exclude>**/*.properties</exclude>
-            </excludes>
-          </configuration>
-          <executions>
-            <execution>
-              <id>format</id>
-              <phase>process-sources</phase>
-              <goals>
-                <goal>format</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>check</id>
-              <phase>compile</phase>
-              <goals>
-                <goal>check</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -413,6 +384,19 @@
       </plugin>
     </plugins>
   </reporting>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>sonatype-nexus</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>sonatype-nexus</id>
+      <name>Sonatype Nexus Releases</name>
+      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+    </repository>
+  </distributionManagement>
 
   <dependencyManagement>
     <dependencies>
@@ -643,155 +627,6 @@
   </dependencies>
 
   <profiles>
-    <!--
-      This profile should be use by projects hosted internallay on VGR. The profile need to be specified explicity
-      to be used: -Pinternal
-    -->
-    <profile>
-      <id>internal</id>
-      <repositories>
-        <repository>
-          <id>central</id>
-          <name>vgr internal repo</name>
-          <url>http://portalutv.vgregion.se/nexus/content/groups/all</url>
-        </repository>
-      </repositories>
-
-      <pluginRepositories>
-        <pluginRepository>
-          <id>central</id>
-          <name>vgr internal repo</name>
-          <url>http://portalutv.vgregion.se/nexus/content/groups/all</url>
-        </pluginRepository>
-      </pluginRepositories>
-
-      <distributionManagement>
-        <repository>
-          <uniqueVersion>false</uniqueVersion>
-          <id>internal-repo</id>
-          <url>http://portalutv.vgregion.se/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-          <uniqueVersion>false</uniqueVersion>
-          <id>internal-repo</id>
-          <url>http://portalutv.vgregion.se/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-      </distributionManagement>
-    </profile>
-
-    <profile>
-      <!--
-        This profile should be use by open source projec on VGR. The projects are hosted by google code. This is
-        the default profile and is used if no other profile is specified.
-      -->
-      <id>open</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.mycila.maven-license-plugin</groupId>
-            <artifactId>maven-license-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <artifactId>maven-war-plugin</artifactId>
-            <configuration>
-              <packagingExcludes>**/security.properties</packagingExcludes>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-      <repositories>
-        <repository>
-          <id>atlassian-public</id>
-          <url>https://maven.atlassian.com/repository/public</url>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-        </repository>
-        <repository>
-          <id>atlassian-m1-repository</id>
-          <url>https://maven.atlassian.com/maven1</url>
-          <layout>legacy</layout>
-        </repository>
-        <repository>
-          <id>oppnaprogram-release</id>
-          <name>oppna program release repo</name>
-          <url>http://oppna-program.googlecode.com/svn/maven</url>
-          <releases>
-            <updatePolicy>never</updatePolicy>
-            <checksumPolicy>warn</checksumPolicy>
-            <enabled>true</enabled>
-          </releases>
-        </repository>
-        <repository>
-          <id>oppnaprogram-snapshot</id>
-          <name>oppna program snapshot repo</name>
-          <url>http://oppna-program.googlecode.com/svn/maven-snapshots</url>
-        </repository>
-        <repository>
-          <id>powermock-repo</id>
-          <url>http://powermock.googlecode.com/svn/repo/</url>
-        </repository>
-      </repositories>
-
-      <pluginRepositories>
-        <pluginRepository>
-          <id>atlassian-public</id>
-          <url>https://maven.atlassian.com/repository/public</url>
-        </pluginRepository>
-        <pluginRepository>
-          <id>atlassian-m1-repository</id>
-          <url>https://maven.atlassian.com/maven1</url>
-          <layout>legacy</layout>
-        </pluginRepository>
-        <pluginRepository>
-          <id>oppnaprogram-release</id>
-          <name>oppna program release repo</name>
-          <url>http://oppna-program.googlecode.com/svn/maven</url>
-          <releases>
-            <updatePolicy>never</updatePolicy>
-            <checksumPolicy>warn</checksumPolicy>
-            <enabled>true</enabled>
-          </releases>
-        </pluginRepository>
-        <pluginRepository>
-          <id>oppnaprogram-snapshot</id>
-          <name>oppna program snapshot repo</name>
-          <url>http://oppna-program.googlecode.com/svn/maven-snapshots</url>
-        </pluginRepository>
-        <!--Needed for the maven-license-plugin -->
-        <pluginRepository>
-          <id>mc-release</id>
-          <name>License plugin</name>
-          <url>http://mc-repo.googlecode.com/svn/maven2/releases</url>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-        </pluginRepository>
-      </pluginRepositories>
-
-      <distributionManagement>
-        <repository>
-          <id>svn-repo</id>
-          <name>Öppna Program Release Repo</name>
-          <url>svn:https://oppna-program.googlecode.com/svn/maven</url>
-        </repository>
-        <snapshotRepository>
-          <id>svn-repo</id>
-          <name>Öppna Program Snapshot Repo</name>
-          <url>svn:https://oppna-program.googlecode.com/svn/maven-snapshots</url>
-        </snapshotRepository>
-      </distributionManagement>
-    </profile>
-
     <profile>
       <!--
         The prod-profile is used when building production artifacts with securities (security.properties) included.
@@ -826,9 +661,9 @@
           <layout>legacy</layout>
         </repository>
         <repository>
-          <id>oppnaprogram-release</id>
-          <name>oppna program release repo</name>
-          <url>http://oppna-program.googlecode.com/svn/maven</url>
+          <id>sonatype-nexus-releases</id>
+          <name>Sonatype Nexus Releases</name>
+          <url>http://oss.sonatype.org/content/repositories/releases</url>
           <releases>
             <updatePolicy>never</updatePolicy>
             <checksumPolicy>warn</checksumPolicy>
@@ -852,9 +687,9 @@
           <layout>legacy</layout>
         </pluginRepository>
         <pluginRepository>
-          <id>oppnaprogram-release</id>
-          <name>oppna program release repo</name>
-          <url>http://oppna-program.googlecode.com/svn/maven</url>
+          <id>sonatype-nexus-releases</id>
+          <name>Sonatype Nexus Releases</name>
+          <url>http://oss.sonatype.org/content/repositories/releases</url>
           <releases>
             <updatePolicy>never</updatePolicy>
             <checksumPolicy>warn</checksumPolicy>
