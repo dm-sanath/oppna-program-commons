@@ -21,7 +21,7 @@
   <parent>
   	<groupId>se.vgregion.common</groupId>
     <artifactId>profile</artifactId>
-    <version>2.1-SNAPSHOT</version>
+    <version>2.0</version>
   </parent>
   
   <artifactId>profile-open</artifactId>
@@ -81,6 +81,7 @@
     </plugins>
   </build>
 
+<!--
   <repositories>
     <repository>
       <id>atlassian-public</id>
@@ -143,7 +144,7 @@
       <name>Sonatype Nexus Snapshots</name>
       <url>http://oss.sonatype.org/content/repositories/snapshots</url>
     </pluginRepository>
-    <!--Needed for the maven-license-plugin -->
+
     <pluginRepository>
       <id>mc-release</id>
       <name>License plugin</name>
@@ -156,5 +157,6 @@
       </releases>
     </pluginRepository>
   </pluginRepositories>
+-->
 
 </project>
