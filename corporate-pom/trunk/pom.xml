@@ -394,7 +394,6 @@
     </extensions>
   </build>
 
-
   <scm>
     <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</developerConnection>
     <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</url>
