@@ -45,7 +45,8 @@
               <exclude>thirdpartylicenses/**</exclude>
               <exclude>**/LICENSE.rtf</exclude>
               <exclude>**/context.xml</exclude>
-			  <exclude>**/*.properties</exclude>
+	      <exclude>**/*.properties</exclude>
+	      <exclude>**/*.sql</exclude>
             </excludes>
           </configuration>
           <executions>
