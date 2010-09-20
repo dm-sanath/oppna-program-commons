@@ -94,7 +94,7 @@
   <!-- common library versions -->
   <properties>
     <javg.version>1.3</javg.version>
-    <spring.fw.version>3.0.3.RELEASE</spring.fw.version>
+    <spring.fw.version>3.0.4.RELEASE</spring.fw.version>
     <apache.cxf.version>2.1.1</apache.cxf.version>
     <jstl.version>1.2</jstl.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -102,7 +102,7 @@
     <spring.ldap.version>1.3.0.RELEASE</spring.ldap.version>
     <portlet-api.version>2.0</portlet-api.version>
     <servlet-api.version>2.5</servlet-api.version>
-    <slf4j.version>1.6.0</slf4j.version>
+    <slf4j.version>1.6.1</slf4j.version>
     <log4j.version>1.2.16</log4j.version>
     <liferay.version>5.2.3</liferay.version>
     <junit.version>4.8.1</junit.version>
@@ -231,14 +231,14 @@
           version may remain constant at 1.0-SNAPSHOT for many iterations until release, you will have a build number that can 
           uniquely identify each build during that time. The build number is obtained from scm, and in particular, at this time, 
           from svn. You can then place that build number in metadata, which can be accessed from your app, if desired. -->
-        <!--plugin>
+        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>buildnumber-maven-plugin</artifactId>
           <version>1.0-beta-4</version>
           <configuration>
             <revisionOnScmFailure>REVISION_UNKNOWN</revisionOnScmFailure>
           </configuration>
-        </plugin-->
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -249,7 +249,7 @@
           <archive>
             <manifestEntries>
               <Version>${project.version}</Version>
-              <!--<SCM-Revision>${buildNumber}</SCM-Revision> -->
+              <SCM-Revision>${buildNumber}</SCM-Revision>
             </manifestEntries>
           </archive>
         </configuration>
@@ -260,7 +260,7 @@
           <archive>
             <manifestEntries>
               <Version>${project.version}</Version>
-              <!--<SCM-Revision>${buildNumber}</SCM-Revision> -->
+              <SCM-Revision>${buildNumber}</SCM-Revision>
             </manifestEntries>
           </archive>
         </configuration>
@@ -326,7 +326,7 @@
         </executions>
       </plugin>
 
-      <!--plugin>
+      <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
         <executions>
@@ -342,7 +342,7 @@
           <doUpdate>true</doUpdate>
           <revisionOnScmFailure>REVISION_UNKNOWN</revisionOnScmFailure>
         </configuration>
-      </plugin-->
+      </plugin>
     </plugins>
 
     <!-- needed for SVN-deployment -->
