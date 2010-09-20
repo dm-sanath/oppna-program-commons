@@ -16,7 +16,7 @@
   <groupId>se.vgregion.common</groupId>
   <artifactId>profile</artifactId>
   <packaging>pom</packaging>
-  <version>2.9</version>
+  <version>2.10-SNAPSHOT</version>
   <name>${project.artifactId}</name>
   <description>Corporate POM for projects in the oppna-program community.</description>
   <url>http://oppna-program.googlecode.com</url>
@@ -337,8 +337,8 @@
   </build>
 
   <scm>
-    <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/tags/profile-2.9</developerConnection>
-    <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/tags/profile-2.9</url>
+    <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</developerConnection>
+    <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</url>
   </scm>
 
   <reporting>
