@@ -16,7 +16,7 @@
   <groupId>se.vgregion.common</groupId>
   <artifactId>profile</artifactId>
   <packaging>pom</packaging>
-  <version>2.10-SNAPSHOT</version>
+  <version>2.10</version>
   <name>${project.artifactId}</name>
   <description>Corporate POM for projects in the oppna-program community.</description>
   <url>http://oppna-program.googlecode.com</url>
@@ -182,6 +182,12 @@
         <plugin>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>2.5</version>
+		  <configuration>
+			<links>
+			  <link>http://download.oracle.com/javase/6/docs/api/</link>
+			  <link>http://static.springsource.org/spring/docs/3.0.x/javadoc-api/</link>
+			</links>
+		  </configuration>
         </plugin>
 
         <!-- PMD scans Java source code and looks for potential problems like Possible bugs, Dead code, Suboptimal code, 
@@ -337,8 +343,8 @@
   </build>
 
   <scm>
-    <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</developerConnection>
-    <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/trunk</url>
+    <developerConnection>scm:svn:https://oppna-program-commons.googlecode.com/svn/corporate-pom/tags/profile-2.10</developerConnection>
+    <url>http://oppna-program-commons.googlecode.com/svn/corporate-pom/tags/profile-2.10</url>
   </scm>
 
   <reporting>

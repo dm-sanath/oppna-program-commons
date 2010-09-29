@@ -16,7 +16,7 @@
   <parent>
     <groupId>se.vgregion.common</groupId>
     <artifactId>profile</artifactId>
-    <version>2.10-SNAPSHOT</version>
+    <version>2.10</version>
   </parent>
 
   <artifactId>profile-open</artifactId>
@@ -31,9 +31,10 @@
         <plugin>
           <groupId>com.mycila.maven-license-plugin</groupId>
           <artifactId>maven-license-plugin</artifactId>
-          <version>1.5.1</version>
+          <version>1.8.0</version>
           <configuration>
             <header>http://oppna-program.googlecode.com/files/header.txt</header>
+            <skipExistingHeaders>true</skipExistingHeaders>
             <excludes>
               <exclude>target/**</exclude>
               <exclude>**/NOTICES.txt</exclude>
