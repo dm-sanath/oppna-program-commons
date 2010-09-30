@@ -10,7 +10,6 @@ This project contains a collection of components/composites that are too small o
 These are the components contained within this project. Follow the links to se more details about every components.
 
  * [commons_util_core_bc_composite_svc_ldap LDAP client]
-
  * [commons_util_core_bc_composite_svc_pivotaltracker Pivotal Tracker Client]
-
  * [commons_util_core_bc_composite_svc_usd USD client]
+ * [commons_util_core_bc_composite_types_jpa JPA Framework]
