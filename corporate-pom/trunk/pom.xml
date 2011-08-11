@@ -115,6 +115,7 @@
     <compileSource>1.6</compileSource>
     <compileTarget>1.6</compileTarget>
     <jpa.version>1.0</jpa.version>
+    <camel-version>2.7.1</camel-version>
   </properties>
 
   <build>
