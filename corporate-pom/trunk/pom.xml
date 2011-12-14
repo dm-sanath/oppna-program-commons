@@ -206,7 +206,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>findbugs-maven-plugin</artifactId>
-          <version>2.3.1</version>
+          <version>2.3.2</version>
         </plugin>
 
         <!-- The Failsafe Plugin is a fork of the Surefire plugin designed to run integration tests. -->
