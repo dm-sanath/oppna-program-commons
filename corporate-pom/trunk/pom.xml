@@ -358,7 +358,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>2.10</version>
         <configuration>
           <configLocation>http://oppna-program.googlecode.com/svn/dev-environment/checkstyle/sun_checks_vgr.xml</configLocation>
           <consoleOutput>true</consoleOutput>
@@ -368,7 +367,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>cobertura-maven-plugin</artifactId>
-        <version>2.4</version>
         <configuration>
           <formats>
             <format>html</format>
@@ -379,17 +377,14 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
-        <version>2.1</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.5</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>2.4</version>
         <configuration>
           <targetJdk>${compileTarget}</targetJdk>
         </configuration>
@@ -403,7 +398,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
-        <version>2.3.2</version>
         <configuration>
           <findbugsXmlOutput>true</findbugsXmlOutput>
           <xmlOutput>true</xmlOutput>
